@@ -24,26 +24,27 @@ namespace Flowchart_Framework.View
         private LayoutWatcher _selfWatcher = new LayoutWatcher();
         private LayoutWatcher _fromWatcher = new LayoutWatcher();
         private LayoutWatcher _toWatcher = new LayoutWatcher();
+     
 
-        public Connector From
+        public FrameworkElement From
         {
-            get { return (Connector)GetValue(FromProperty); }
+            get { return (FrameworkElement)GetValue(FromProperty); }
             set { SetValue(FromProperty, value); }
         }
 
         public static readonly DependencyProperty FromProperty =
-        DependencyProperty.Register("From", typeof(FrameworkElement), typeof(Connector),
+        DependencyProperty.Register("From", typeof(FrameworkElement), typeof(FrameworkElement),
         new FrameworkPropertyMetadata((o, args) =>
         { var self = (Connector)o; self._fromWatcher.ChangeTarget(self.From); }));
 
-        public Connector To
+        public FrameworkElement To
         {
-            get { return (Connector)GetValue(ToProperty); }
+            get { return (FrameworkElement)GetValue(ToProperty); }
             set { SetValue(ToProperty, value); }
         }
 
         public static readonly DependencyProperty ToProperty =
-            DependencyProperty.Register("To", typeof(FrameworkElement), typeof(Connector),
+            DependencyProperty.Register("To", typeof(FrameworkElement), typeof(FrameworkElement),
                 new FrameworkPropertyMetadata((o, args) =>
                 { var self = (Connector)o; self._toWatcher.ChangeTarget(self.To); }));
 
@@ -52,7 +53,6 @@ namespace Flowchart_Framework.View
             InitializeComponent();
 
             _selfWatcher.ChangeTarget(this);
-
             _selfWatcher.Changed += RedrawLine;
             _fromWatcher.Changed += RedrawLine;
             _toWatcher.Changed += RedrawLine;
@@ -60,7 +60,7 @@ namespace Flowchart_Framework.View
         }
 
         private void RedrawLine(object sender, LayoutChangeEventArgs e)
-        {
+        {    
             if (From == null || To == null)
             {
                 ConnectingLine.Visibility = Visibility.Collapsed;

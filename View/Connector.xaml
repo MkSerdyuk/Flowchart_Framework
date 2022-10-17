@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Flowchart_Framework.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Line StrokeThickness="1.5" DataContext="{Binding ElementName=ConnectorRoot}"
-          Fill="{Binding Foreground}" Stroke="{Binding Foreground}" x:Name="ConnectingLine"/>
+             mc:Ignorable="d" >
+    <Line StrokeThickness="1.5"
+          Fill="{Binding Foreground}" Stroke="Red" x:Name="ConnectingLine"/>
 </UserControl>

@@ -16,11 +16,11 @@ namespace Flowchart_Framework.ViewModels
     
     public class LayoutWatcher
     {
-        private Connector _target, _origin;
+        private FrameworkElement _target, _origin;
         private Rect _currentRendererRect = Rect.Empty;
         public event EventHandler<LayoutChangeEventArgs> Changed;
 
-        public void ChangeTarget(Connector target, Connector origin = null)
+        public void ChangeTarget(FrameworkElement target, FrameworkElement origin = null)
         {
             if (_target != null)
             {
@@ -47,7 +47,7 @@ namespace Flowchart_Framework.ViewModels
             }
         }
 
-        public static Rect ComputeRendererRect(Connector target, Connector origin)
+        public static Rect ComputeRendererRect(FrameworkElement target, FrameworkElement origin)
         {
             return new Rect(target.TranslatePoint(new Point(), origin), target.RenderSize);
         }

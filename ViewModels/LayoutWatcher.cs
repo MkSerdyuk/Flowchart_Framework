@@ -10,14 +10,14 @@ namespace Flowchart_Framework.ViewModels
 {
     public class LayoutChangeEventArgs : EventArgs
     {
-        public readonly Rect Rect;
-        public LayoutChangeEventArgs(Rect Rect) => Rect = Rect;
+        public readonly Point Point;
+        public LayoutChangeEventArgs(Point Point) => Point = Point;
     }
     
     public class LayoutWatcher
     {
         private FrameworkElement _target, _origin;
-        private Rect _currentRendererRect = Rect.Empty;
+        private Point _currentRendererPoint;
         public event EventHandler<LayoutChangeEventArgs> Changed;
 
         public void ChangeTarget(FrameworkElement target, FrameworkElement origin = null)
@@ -39,22 +39,22 @@ namespace Flowchart_Framework.ViewModels
 
         private void OnLayoutUpdate(object sender, EventArgs e)
         {
-            Rect newRendererRect = GetRendererRect();
-            if (newRendererRect != _currentRendererRect)
+            Point newRendererPoint = GetRendererPoint();
+            if (newRendererPoint != _currentRendererPoint)
             {
-                _currentRendererRect = newRendererRect;
-                Changed?.Invoke(_target, new LayoutChangeEventArgs(_currentRendererRect));
+                _currentRendererPoint = newRendererPoint;
+                Changed?.Invoke(_target, new LayoutChangeEventArgs(_currentRendererPoint));
             }
         }
 
-        public static Rect ComputeRendererRect(FrameworkElement target, FrameworkElement origin)
+        public static Point ComputeRendererPoint(FrameworkElement target, FrameworkElement origin)
         {
-            return new Rect(target.TranslatePoint(new Point(), origin), target.RenderSize);
+            return target.TranslatePoint(new Point(), origin);
         }
 
-        private Rect GetRendererRect()
+        private Point GetRendererPoint()
         {
-            return ComputeRendererRect(_target, _origin);
+            return ComputeRendererPoint(_target, _origin);
         }
 
     }

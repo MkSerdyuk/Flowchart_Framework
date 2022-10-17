@@ -1,0 +1,16 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleApp"
+        xmlns:View="clr-namespace:Flowchart_Framework.View;assembly=Flowchart_Framework" x:Class="ExampleApp.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <View:Port x:Name="Port1" HorizontalAlignment="Stretch" Margin="44,38,0,0" VerticalAlignment="Stretch"/>
+        <View:Port x:Name="Port2" HorizontalAlignment="Stretch" Margin="141,90,0,0" VerticalAlignment="Stretch"/>
+        <View:Connector x:Name="Connector"/>
+    </Grid>
+</Window>

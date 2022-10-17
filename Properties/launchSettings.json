@@ -3,13 +3,9 @@
     "Flowchart_Framework": {
       "commandName": "Project"
     },
-    "ExampleApp": {
-      "commandName": "Project",
-      "workingDirectory": "C:\\Users\\mikha\\VisualStudioProjects\\WPF\\Flowchart_Framework\\ExampleApp\\ExampleApp\\bin"
-    },
     "Example": {
       "commandName": "Executable",
-      "executablePath": "C:\\Users\\mikha\\VisualStudioProjects\\WPF\\Flowchart_Framework\\ExampleApp\\ExampleApp\\bin\\Debug\\net6.0-windows\\ExampleApp.exe"
+      "executablePath": "C:\\Users\\mikha\\VisualStudioProjects\\WPF\\Flowchart_Framework\\ExampleApp\\bin\\Debug\\net6.0-windows\\ExampleApp.exe"
     }
   }
 }

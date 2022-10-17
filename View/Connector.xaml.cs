@@ -69,14 +69,14 @@ namespace Flowchart_Framework.View
 
             ConnectingLine.Visibility = Visibility.Visible;
 
-            var fromRect = LayoutWatcher.ComputeRendererRect(From, this);
-            var toRect = LayoutWatcher.ComputeRendererRect(To, this);
+            var fromRect = LayoutWatcher.ComputeRendererPoint(From, this);
+            var toRect = LayoutWatcher.ComputeRendererPoint(To, this);
 
-            ConnectingLine.X1 = fromRect.Right + 5;
-            ConnectingLine.Y1 = fromRect.Top + fromRect.Height / 2;
+            ConnectingLine.X1 = fromRect.X + 10;
+            ConnectingLine.Y1 = fromRect.Y + 10;
 
-            ConnectingLine.X2 = toRect.Left - 5;
-            ConnectingLine.Y2 = toRect.Top + toRect.Height / 2;
+            ConnectingLine.X2 = toRect.X + 10;
+            ConnectingLine.Y2 = toRect.Y + 10;
         }
     }
 }

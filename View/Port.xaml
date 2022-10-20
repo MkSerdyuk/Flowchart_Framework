@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Flowchart_Framework.View"
              mc:Ignorable="d" Width="20" Height="20">
-    <Grid Width="20" Height="20">
-        <Ellipse HorizontalAlignment="Stretch" Height="20" Stroke="Black" VerticalAlignment="Stretch" Width="20" Fill="White"/>
+    <Grid Width="20" Height="20" x:Name="Grid">
+        <Ellipse HorizontalAlignment="Stretch" Height="20" Stroke="Black" VerticalAlignment="Stretch" Width="20" Fill="White" MouseDown="Port_MouseDown"/>
 
     </Grid>
 </UserControl>

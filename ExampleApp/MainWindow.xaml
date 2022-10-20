@@ -11,6 +11,5 @@
 
         <View:Port x:Name="Port1" HorizontalAlignment="Stretch" Margin="44,38,0,0" VerticalAlignment="Stretch"/>
         <View:Port x:Name="Port2" HorizontalAlignment="Stretch" Margin="141,90,0,0" VerticalAlignment="Stretch"/>
-        <View:Connector x:Name="Connector"/>
     </Grid>
 </Window>

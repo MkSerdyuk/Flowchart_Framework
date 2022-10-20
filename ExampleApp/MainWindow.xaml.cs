@@ -23,8 +23,6 @@ namespace ExampleApp
         public MainWindow()
         {
             InitializeComponent();
-            Connector.From = Port1;
-            Connector.To = Port2;
         }
     }
 }

@@ -5,45 +5,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Flowchart_Framework.ViewModels
 {
-    public class LayoutChangeEventArgs : EventArgs
+    public class PositionChangeEventArgs : EventArgs
     {
         public readonly Point Point;
-        public LayoutChangeEventArgs(Point Point) => Point = Point;
+        public PositionChangeEventArgs(Point Point) => Point = Point;
     }
     
-    public class LayoutWatcher
+    public class PositionWatcher
     {
+
         private FrameworkElement _target, _origin;
         private Point _currentRendererPoint;
-        public event EventHandler<LayoutChangeEventArgs> Changed;
+        public event EventHandler<PositionChangeEventArgs> Changed;
 
         public void ChangeTarget(FrameworkElement target, FrameworkElement origin = null)
         {
             if (_target != null)
             {
-                _target.LayoutUpdated -= OnLayoutUpdate;
+                _target.LayoutUpdated -= OnPositionUpdate;
             }
 
             _target = target;
             _origin = origin;
-            OnLayoutUpdate(null, null);
+            OnPositionUpdate(null, null);
 
             if (_target != null)
             {
-                _target.LayoutUpdated += OnLayoutUpdate;
+                _target.LayoutUpdated += OnPositionUpdate;
             }
-        } 
+        }
 
-        private void OnLayoutUpdate(object sender, EventArgs e)
+        private void OnPositionUpdate(object sender, EventArgs e)
         {
             Point newRendererPoint = GetRendererPoint();
             if (newRendererPoint != _currentRendererPoint)
             {
                 _currentRendererPoint = newRendererPoint;
-                Changed?.Invoke(_target, new LayoutChangeEventArgs(_currentRendererPoint));
+                Changed?.Invoke(_target, new PositionChangeEventArgs(_currentRendererPoint));
             }
         }
 

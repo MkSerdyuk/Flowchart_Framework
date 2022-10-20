@@ -21,9 +21,9 @@ namespace Flowchart_Framework.View
     /// </summary>
     public partial class Connector : UserControl
     {
-        private LayoutWatcher _selfWatcher = new LayoutWatcher();
-        private LayoutWatcher _fromWatcher = new LayoutWatcher();
-        private LayoutWatcher _toWatcher = new LayoutWatcher();
+        private PositionWatcher _selfWatcher = new PositionWatcher();
+        private PositionWatcher _fromWatcher = new PositionWatcher();
+        private PositionWatcher _toWatcher = new PositionWatcher();
      
 
         public FrameworkElement From
@@ -48,18 +48,69 @@ namespace Flowchart_Framework.View
                 new FrameworkPropertyMetadata((o, args) =>
                 { var self = (Connector)o; self._toWatcher.ChangeTarget(self.To); }));
 
-        public Connector()
+        public Connector(Port from)
         {
             InitializeComponent();
 
             _selfWatcher.ChangeTarget(this);
             _selfWatcher.Changed += RedrawLine;
+
+            From = from;
             _fromWatcher.Changed += RedrawLine;
-            _toWatcher.Changed += RedrawLine;
-            RedrawLine(null, null);
+            FollowMouse();
+            //RedrawLine(null, (PositionChangeEventArgs) null);
         }
 
-        private void RedrawLine(object sender, LayoutChangeEventArgs e)
+        public Connector(Port from, Port to)
+        {
+            InitializeComponent();
+
+            _selfWatcher.ChangeTarget(this);
+            _selfWatcher.Changed += RedrawLine;
+
+            From = from;
+            _fromWatcher.Changed += RedrawLine;
+
+            To = to;
+            _toWatcher.Changed += RedrawLine;
+
+            RedrawLine(null, (PositionChangeEventArgs) null);
+        }
+
+        public void FollowPort(Port to)
+        {
+            To = to;
+            _toWatcher.Changed += RedrawLine;
+        }
+
+        public void FollowMouse()
+        {
+            To = null;
+
+            Mouse.AddMouseMoveHandler(this, RedrawLine);
+        }
+
+        private void RedrawLine(object sender, MouseEventArgs e)
+        {
+            if (From == null || To == null)
+            {
+                ConnectingLine.Visibility = Visibility.Collapsed;
+                return;
+            }
+
+            ConnectingLine.Visibility = Visibility.Visible;
+
+            var fromPoint = PositionWatcher.ComputeRendererPoint(From, this);
+            var toPoint = e.GetPosition(this);
+
+            ConnectingLine.X1 = fromPoint.X + 10;
+            ConnectingLine.Y1 = fromPoint.Y + 10;
+
+            ConnectingLine.X2 = toPoint.X + 10;
+            ConnectingLine.Y2 = toPoint.Y + 10;
+        }
+
+        private void RedrawLine(object sender, PositionChangeEventArgs e)
         {    
             if (From == null || To == null)
             {
@@ -69,14 +120,16 @@ namespace Flowchart_Framework.View
 
             ConnectingLine.Visibility = Visibility.Visible;
 
-            var fromRect = LayoutWatcher.ComputeRendererPoint(From, this);
-            var toRect = LayoutWatcher.ComputeRendererPoint(To, this);
+            var fromPoint = PositionWatcher.ComputeRendererPoint(From, this);
+            var toPoint = PositionWatcher.ComputeRendererPoint(To, this);
 
-            ConnectingLine.X1 = fromRect.X + 10;
-            ConnectingLine.Y1 = fromRect.Y + 10;
+            ConnectingLine.X1 = fromPoint.X + 10;
+            ConnectingLine.Y1 = fromPoint.Y + 10;
 
-            ConnectingLine.X2 = toRect.X + 10;
-            ConnectingLine.Y2 = toRect.Y + 10;
+            ConnectingLine.X2 = toPoint.X + 10;
+            ConnectingLine.Y2 = toPoint.Y + 10;
         }
+
+
     }
 }

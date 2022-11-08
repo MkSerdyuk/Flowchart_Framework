@@ -8,8 +8,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Canvas x:Name="MainCanvas">
+            <View:BlockWithTextBox Canvas.Left="330" Canvas.Top="217"/>
+            <View:BlockWithTextBox Canvas.Left="474" Canvas.Top="302"/>
+            <View:OutputBox Canvas.Left="668" Canvas.Top="327"/>
 
-        <View:Port x:Name="Port1" HorizontalAlignment="Stretch" Margin="44,38,0,0" VerticalAlignment="Stretch"/>
-        <View:Port x:Name="Port2" HorizontalAlignment="Stretch" Margin="141,90,0,0" VerticalAlignment="Stretch"/>
+
+        </Canvas>
     </Grid>
 </Window>

@@ -48,7 +48,7 @@ namespace Flowchart_Framework.View
                 new FrameworkPropertyMetadata((o, args) =>
                 { var self = (Connector)o; self._toWatcher.ChangeTarget(self.To); }));
 
-        public Connector(Port from)
+        public Connector(OutPort from)
         {
             InitializeComponent();
 
@@ -61,7 +61,7 @@ namespace Flowchart_Framework.View
             //RedrawLine(null, (PositionChangeEventArgs) null);
         }
 
-        public Connector(Port from, Port to)
+        public Connector(OutPort from,InPort to)
         {
             InitializeComponent();
 
@@ -77,7 +77,7 @@ namespace Flowchart_Framework.View
             RedrawLine(null, (PositionChangeEventArgs) null);
         }
 
-        public void FollowPort(Port to)
+        public void FollowPort(InPort to)
         {
             To = to;
             _toWatcher.Changed += RedrawLine;
@@ -103,10 +103,10 @@ namespace Flowchart_Framework.View
             var fromPoint = PositionWatcher.ComputeRendererPoint(From, this);
             var toPoint = e.GetPosition(this);
 
-            ConnectingLine.X1 = fromPoint.X + 10;
+            ConnectingLine.X1 = fromPoint.X + 20;
             ConnectingLine.Y1 = fromPoint.Y + 10;
 
-            ConnectingLine.X2 = toPoint.X + 10;
+            ConnectingLine.X2 = toPoint.X + 20;
             ConnectingLine.Y2 = toPoint.Y + 10;
         }
 

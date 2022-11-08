@@ -13,18 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ExampleApp
+namespace Flowchart_Framework.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Editor.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Editor : UserControl
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-
-
-        }
+        
     }
 }

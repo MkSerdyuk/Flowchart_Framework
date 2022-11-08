@@ -21,11 +21,40 @@ namespace Flowchart_Framework.View
     /// </summary>
     public partial class Block : UserControl
     {
+        public Block()
+        {
+            InitializeComponent();
+        }
+
+        public Canvas Parent;
+
+        private string _state = "static";
 
         public virtual void InputChanged()
         {
 
         }
 
+        private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (_state == "static")
+            {
+                _state = "active";
+            }
+            else
+            {
+                _state = "static";
+            }
+        }
+
+        private void UserControl_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (_state == "active")
+            {
+                var position = e.GetPosition(Parent);
+                Canvas.SetLeft(this, position.X - 50);
+                Canvas.SetTop(this, position.Y - 15);
+            }
+        }
     }
 }

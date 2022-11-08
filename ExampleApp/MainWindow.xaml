@@ -9,9 +9,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Canvas x:Name="MainCanvas">
-            <View:BlockWithTextBox Canvas.Left="330" Canvas.Top="217"/>
-            <View:BlockWithTextBox Canvas.Left="474" Canvas.Top="302"/>
-            <View:OutputBox Canvas.Left="668" Canvas.Top="327"/>
+            <View:BlockWithTextBox Canvas.Left="153" Canvas.Top="79"/>
+            <View:BlockWithTextBox Canvas.Left="282" Canvas.Top="137"/>
+            <View:OutputBox Canvas.Left="282" Canvas.Top="243" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <View:Block Canvas.Left="92" Canvas.Top="257"/>
 
 
         </Canvas>

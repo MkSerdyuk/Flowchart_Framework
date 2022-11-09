@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Flowchart_Framework.View"
              mc:Ignorable="d" Width="20" Height="20">
     <Grid Width="20" Height="20" x:Name="Grid"
-          MouseLeftButtonDown="Port_LeftMouseDown" >
+          MouseLeftButtonDown="Port_LeftMouseDown" MouseRightButtonDown="Grid_MouseRightButtonDown" >
         <Ellipse HorizontalAlignment="Stretch" Height="20" Stroke="Black" VerticalAlignment="Stretch" Width="20" Fill="White"/>
 
     </Grid>

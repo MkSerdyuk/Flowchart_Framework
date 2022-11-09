@@ -57,5 +57,14 @@ namespace Flowchart_Framework.View
 
         }
 
+        private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            foreach(InPort linked in Linked.ToList<InPort>())
+            {
+                Linked.Remove(linked);
+            }
+            
+            Grid.Children.RemoveRange(1, Grid.Children.Count-1);
+        }
     }
 }

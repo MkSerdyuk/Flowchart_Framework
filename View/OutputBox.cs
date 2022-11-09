@@ -17,18 +17,26 @@ namespace Flowchart_Framework.View
         {
             InitializeComponent();
 
-            Port.SetValue(Grid.RowProperty, 0);
-            Port.SetValue(Grid.ColumnProperty, 1);
+            Port.SetValue(Grid.RowProperty, 1);
+            Port.SetValue(Grid.ColumnProperty, 0);
 
             Port.Parent = this;
 
             Out.IsEnabled = false;
-            Out.SetValue(Grid.RowProperty, 1);
+            Out.SetValue(Grid.RowProperty, 2);
             Out.SetValue(Grid.ColumnProperty, 0);
             Out.SetValue(Grid.ColumnSpanProperty, 3);
 
+            Label label = new Label();
+
+            label.Content = "Output Block";
+            label.SetValue(Grid.RowProperty, 0);
+            label.SetValue(Grid.ColumnProperty, 0);
+            label.SetValue(Grid.ColumnSpanProperty, 3);
+
             MainGrid.Children.Add(Port);
             MainGrid.Children.Add(Out); 
+            MainGrid.Children.Add(label);
         }
 
         public override void InputChanged()

@@ -6,13 +6,12 @@
         xmlns:local="clr-namespace:ExampleApp"
         xmlns:View="clr-namespace:Flowchart_Framework.View;assembly=Flowchart_Framework" x:Class="ExampleApp.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="331" Width="624">
+    <Grid Margin="0,0,222,171">
         <Canvas x:Name="MainCanvas">
-            <View:BlockWithTextBox Canvas.Left="153" Canvas.Top="79"/>
-            <View:BlockWithTextBox Canvas.Left="282" Canvas.Top="137"/>
-            <View:OutputBox Canvas.Left="282" Canvas.Top="243" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <View:Block Canvas.Left="92" Canvas.Top="257"/>
+            <View:BlockWithTextBox Canvas.Left="84" Canvas.Top="84" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <View:BlockWithTextBox Canvas.Left="237" Canvas.Top="118" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <View:OutputBox Canvas.Left="387" Canvas.Top="150" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
         </Canvas>

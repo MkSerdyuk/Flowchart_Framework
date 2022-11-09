@@ -18,24 +18,32 @@ namespace Flowchart_Framework.View
             InitializeComponent();
 
             Editor.SetValue(Grid.RowProperty, 3);
-            In.SetValue(Grid.RowProperty, 0);            
+            In.SetValue(Grid.RowProperty, 1);            
             
             Editor.SetValue(Grid.ColumnProperty, 0);
-            In.SetValue(Grid.ColumnProperty, 1);
+            In.SetValue(Grid.ColumnProperty, 0);
 
             Editor.SetValue(Grid.ColumnSpanProperty, 3);
 
             In.Parent = this;
 
+            Label label = new Label();
+
+            label.Content = "Example Block";
+            label.SetValue(Grid.RowProperty, 0);
+            label.SetValue(Grid.ColumnProperty, 0);
+            label.SetValue(Grid.ColumnSpanProperty, 3);
+
             MainGrid.Children.Add(In);
             MainGrid.Children.Add(Editor);
+            MainGrid.Children.Add(label);
 
 
         }
 
         public override void InputChanged() 
         {
-            
+            Editor.Value = In.Value;
         }
         
     }

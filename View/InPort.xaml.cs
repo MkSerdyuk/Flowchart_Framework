@@ -22,9 +22,9 @@ namespace Flowchart_Framework.View
     {
         private string _value;
 
-        public Block Parent;
+        public List<OutPort> Linked = new List<OutPort>();
 
-//public EventHandler<>;
+        public Block Parent;
 
         public string Value
         {
@@ -53,16 +53,31 @@ namespace Flowchart_Framework.View
                 ((Ellipse)PortManager.From.Grid.Children[0]).Fill = Brushes.White;
                 PortManager.To = this;
                 Connector connector = new Connector(PortManager.From, PortManager.To);
-                Connector crunch = new Connector(PortManager.From, PortManager.To); //англ костыль
+                //Connector crunch = new Connector(PortManager.From, PortManager.To); //англ костыль
                 PortManager.To._source = PortManager.From;
-                PortManager.From.Grid.Children.Add(crunch);
+                //PortManager.From.Grid.Children.Add(crunch);
                 PortManager.From.Linked.Add(this);
+
+                Linked.Add(PortManager.From);
+
+                Value = PortManager.From.Value;
                 PortManager.From = null;
                 PortManager.To = null;
                 Grid.Children.Add(connector);
+
+                Parent.InputChanged();
             }
 
         }
 
+        private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            foreach (OutPort linked in Linked.ToList<OutPort>())
+            {
+                Linked.Remove(linked);
+            }
+
+            Grid.Children.RemoveRange(1, Grid.Children.Count - 1);
+        }
     }
 }

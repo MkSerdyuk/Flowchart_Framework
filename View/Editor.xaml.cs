@@ -20,6 +20,12 @@ namespace Flowchart_Framework.View
     /// </summary>
     public partial class Editor : UserControl
     {
-        
+        protected string _value;
+
+        public virtual string Value
+        {
+            get { return _value; }
+            set { _value = value; }
+        }
     }
 }

@@ -30,10 +30,12 @@ namespace Flowchart_Framework.View
         {
             get { return _value; }
             set 
-            { 
-
-                _value = value;
-                Parent.InputChanged();
+            {
+                if (Linked.Count > 0)
+                {
+                    _value = value;
+                    Parent.InputChanged();
+                }
             }
         }
 
@@ -72,12 +74,15 @@ namespace Flowchart_Framework.View
 
         private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Value = "";
+
             foreach (OutPort linked in Linked.ToList<OutPort>())
             {
                 Linked.Remove(linked);
             }
 
             Grid.Children.RemoveRange(1, Grid.Children.Count - 1);
+
         }
     }
 }

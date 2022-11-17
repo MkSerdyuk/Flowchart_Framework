@@ -24,6 +24,8 @@ namespace Flowchart_Framework.View
 
         public List<OutPort> Linked = new List<OutPort>();
 
+        private List<Connector> _connectors = new List<Connector>();
+
         public Block Parent;
 
         public string Value
@@ -65,9 +67,11 @@ namespace Flowchart_Framework.View
                 Value = PortManager.From.Value;
                 PortManager.From = null;
                 PortManager.To = null;
-                Grid.Children.Add(connector);
+                PortManager.Canvas.Children.Add(connector);
+                _connectors.Add(connector);
 
                 Parent.InputChanged();
+                (Linked[Linked.Count - 1]).UpdateOut();
             }
 
         }
@@ -81,8 +85,12 @@ namespace Flowchart_Framework.View
                 Linked.Remove(linked);
             }
 
-            Grid.Children.RemoveRange(1, Grid.Children.Count - 1);
+            foreach (Connector connector in _connectors)
+            {
+                PortManager.Canvas.Children.Remove(connector);
+            }
 
+            _connectors = new List<Connector>();    
         }
     }
 }

@@ -17,13 +17,14 @@ namespace Flowchart_Framework.View
             set 
             { 
                 _value = value; 
-                Out.Value = value + _textBox.Text;
+                Out.Value = value;
             }
         }
 
         public TextEditor()
         {
             InitializeComponent();
+
             _textBox.TextChanged += TextChanged;
             _textBox.SetValue(Grid.ColumnProperty, 0);
             MainGrid.Children.Add(_textBox);
@@ -31,7 +32,7 @@ namespace Flowchart_Framework.View
 
         private void TextChanged(object sender, EventArgs e)
         {
-            Out.Value = Value + _textBox.Text;
+            Out.EditorValue = _textBox.Text;
         }
     }
 }

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Markup;
+using Flowchart_Framework.View;
+
 
 namespace ExampleApp
 {
@@ -23,7 +26,7 @@ namespace ExampleApp
         public MainWindow()
         {
             InitializeComponent();
-
+            PortManager.Canvas = MainCanvas;
 
         }
     }

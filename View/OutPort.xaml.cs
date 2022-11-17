@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace Flowchart_Framework.View
     {
 
         private string _value;
+        private string _editorValue;
 
         public string Value
         {
@@ -34,13 +36,57 @@ namespace Flowchart_Framework.View
                 {
                     foreach(InPort linked in Linked)
                     {
-                        linked.Value = value;
+                        linked.Value = _value + Command.Replace("{val}", _editorValue) + Endl ;
+                    }
+                }
+            }
+        }        
+        
+        public string EditorValue
+        {
+            get { return _value; }
+            set
+            {
+                _editorValue = value;
+                if (Linked != null)
+                {
+                    foreach(InPort linked in Linked)
+                    {
+                        linked.Value = _value + Command.Replace("{val}", _editorValue) + Endl ;
+                    }
+                }
+            }
+        }
+
+        public List<string> EditorValueList
+        {
+            set
+            {
+                if (Linked != null)
+                {
+                    foreach (InPort linked in Linked)
+                    {
+                        var regex = new Regex(Regex.Escape("{val}"));
+                        string temp = regex.Replace(Command, value[0], 1);
+                        temp = regex.Replace(temp, value[1], 1);
+                        linked.Value = _value + temp + Endl;
                     }
                 }
             }
         }
 
         public List<InPort> Linked = new List<InPort>();
+
+        public string Endl = "\n";
+        public string Command = "";
+
+        public void UpdateOut()
+        {
+            foreach (InPort linked in Linked)
+            {
+                linked.Value = _value + Command.Replace("{val}", _editorValue) + Endl;
+            }
+        }
 
         public OutPort()
         {

@@ -22,10 +22,26 @@ namespace Flowchart_Framework.View
     {
         protected string _value;
 
+
+        public string Command
+        {
+            set { Out.Command = value; }
+        }        
+        
+        public string Endl
+        {
+            set { Out.Endl = value; }
+        }
+
         public virtual string Value
         {
             get { return _value; }
             set { _value = value; }
+        }
+
+        public Editor()
+        {
+            InitializeComponent();
         }
     }
 }

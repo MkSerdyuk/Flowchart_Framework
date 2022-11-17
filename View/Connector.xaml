@@ -5,6 +5,5 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Flowchart_Framework.View"
              mc:Ignorable="d">
-    <Line StrokeThickness="1.5"
-          Fill="{Binding Foreground}" Stroke="Red" x:Name="ConnectingLine"/>
+    <Line StrokeThickness="1.5" Stroke="Red" x:Name="ConnectingLine"/>
 </UserControl>

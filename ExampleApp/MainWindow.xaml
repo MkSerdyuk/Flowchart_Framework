@@ -4,16 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExampleApp"
-        xmlns:View="clr-namespace:Flowchart_Framework.View;assembly=Flowchart_Framework" x:Class="ExampleApp.MainWindow"
+        xmlns:View="clr-namespace:Flowchart_Framework.View.Blocks;assembly=Flowchart_Framework" x:Class="ExampleApp.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="331" Width="624">
-    <Grid Margin="0,0,222,171">
+        Title="MainWindow" Height="494" Width="624">
+    <Grid >
         <Canvas x:Name="MainCanvas">
-            <View:BlockWithTextBox Canvas.Left="84" Canvas.Top="84" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <View:BlockWithTextBox Canvas.Left="237" Canvas.Top="118" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <View:OutputBox Canvas.Left="387" Canvas.Top="150" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
+            <View:LabelBox Canvas.Left="66" Canvas.Top="41"/>
+            <View:CharacterBox Canvas.Left="66" Canvas.Top="132" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <View:ShowBox Canvas.Left="66" Canvas.Top="384" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <View:DialogBox Canvas.Left="66" Canvas.Top="221" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
         </Canvas>
+
     </Grid>
 </Window>

@@ -30,6 +30,11 @@ namespace Flowchart_Framework.View
 
         private string _state = "static";
 
+        public Grid MainGrid 
+        { 
+            get { return _mainGrid; } 
+        }
+
         public virtual void InputChanged()
         {
 

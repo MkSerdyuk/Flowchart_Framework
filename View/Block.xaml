@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="67" d:DesignWidth="100" Background="#FF717070" 
              MouseDoubleClick="UserControl_MouseDoubleClick" PreviewMouseMove="UserControl_PreviewMouseMove">
-    <Grid Width="100" Height="67" x:Name="MainGrid">
+    <Grid x:Name="_mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>

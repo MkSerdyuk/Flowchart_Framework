@@ -9,14 +9,14 @@
         Title="MainWindow" Height="720" Width="1280">
     <Grid >
         <Canvas x:Name="MainCanvas">
-            <View:OutputBox Canvas.Left="1077" Canvas.Top="334" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
-            <View:LabelBox Canvas.Left="66" Canvas.Top="41"/>
-            <View:CharacterBox Canvas.Left="276" Canvas.Top="156" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <View:ShowBox Canvas.Left="590" Canvas.Top="424" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <View:DialogBox Canvas.Left="440" Canvas.Top="265" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <View:DialogBox Canvas.Left="800" Canvas.Top="497" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <View:LabelBox Canvas.Left="66" Canvas.Top="41" TabIndex="0"/>
+            <View:CharacterBox Canvas.Left="250" Canvas.Top="156"/>
+            <View:DialogBox Canvas.Left="432" Canvas.Top="246"/>
+            <View:ShowBox Canvas.Left="640" Canvas.Top="342"/>
+            <View:DialogBox Canvas.Left="820" Canvas.Top="404"/>
+            <View:OutputBox Canvas.Left="1080" Canvas.Top="352" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
         </Canvas>

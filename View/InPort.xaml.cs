@@ -69,6 +69,7 @@ namespace Flowchart_Framework.View
                 PortManager.To = null;
                 PortManager.Canvas.Children.Add(connector);
                 _connectors.Add(connector);
+                connector.RedrawLine(null, null);
 
                 Parent.InputChanged();
                 (Linked[Linked.Count - 1]).UpdateOut();

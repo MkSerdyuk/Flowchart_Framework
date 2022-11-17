@@ -12,7 +12,7 @@ namespace Flowchart_Framework.View.Blocks
     {
         public InPort Port = new InPort();
 
-        public TextBlock Out = new TextBlock();
+        public TextBox Out = new TextBox();
 
         public OutputBox()
         {
@@ -26,7 +26,7 @@ namespace Flowchart_Framework.View.Blocks
 
             Port.Parent = this;
 
-            Out.IsEnabled = false;
+            
             Out.Background = Brushes.White;
             Out.OpacityMask = Brushes.Black;
             Out.Height = 240;
@@ -35,6 +35,7 @@ namespace Flowchart_Framework.View.Blocks
             Out.SetValue(Grid.ColumnProperty, 0);
             Out.SetValue(Grid.ColumnSpanProperty, 3);
             Out.VerticalAlignment = VerticalAlignment.Stretch;
+            Out.IsReadOnly = true;
 
             Label label = new Label();
 

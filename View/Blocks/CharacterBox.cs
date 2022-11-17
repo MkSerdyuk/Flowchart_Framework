@@ -36,7 +36,7 @@ namespace Flowchart_Framework.View.Blocks
             label.SetValue(Grid.ColumnProperty, 0);
             label.SetValue(Grid.ColumnSpanProperty, 3);
 
-            Editor.Command = "  {val} {val} ";
+            Editor.Command = "  {val}\"{val}\" ";
             Editor.Endl = "\n";
 
             

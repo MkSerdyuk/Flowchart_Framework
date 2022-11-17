@@ -110,7 +110,7 @@ namespace Flowchart_Framework.View
             ConnectingLine.Y2 = toPoint.Y + 10;
         }
 
-        private void RedrawLine(object sender, PositionChangeEventArgs e)
+        public void RedrawLine(object sender, PositionChangeEventArgs e)
         {    
             if (From == null || To == null)
             {

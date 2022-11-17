@@ -6,16 +6,17 @@
         xmlns:local="clr-namespace:ExampleApp"
         xmlns:View="clr-namespace:Flowchart_Framework.View.Blocks;assembly=Flowchart_Framework" x:Class="ExampleApp.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="494" Width="624">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid >
         <Canvas x:Name="MainCanvas">
-            <View:OutputBox Canvas.Left="387" Canvas.Top="150" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <View:OutputBox Canvas.Left="1077" Canvas.Top="334" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
             <View:LabelBox Canvas.Left="66" Canvas.Top="41"/>
-            <View:CharacterBox Canvas.Left="66" Canvas.Top="132" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <View:ShowBox Canvas.Left="66" Canvas.Top="384" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <View:DialogBox Canvas.Left="66" Canvas.Top="221" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <View:CharacterBox Canvas.Left="276" Canvas.Top="156" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <View:ShowBox Canvas.Left="590" Canvas.Top="424" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <View:DialogBox Canvas.Left="440" Canvas.Top="265" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <View:DialogBox Canvas.Left="800" Canvas.Top="497" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
         </Canvas>

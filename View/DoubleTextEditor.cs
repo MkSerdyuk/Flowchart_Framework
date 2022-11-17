@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -18,7 +19,10 @@ namespace Flowchart_Framework.View
             set
             {
                 _value = value;
-                Out.Value = value;
+                var regex = new Regex(Regex.Escape("{val}"));
+                string temp = regex.Replace(Command, _textBox1.Text, 1);
+                temp = regex.Replace(temp, _textBox2.Text, 1);
+                Out.Value = value + temp + Endl ;
             }
         }
 
@@ -26,6 +30,8 @@ namespace Flowchart_Framework.View
         {
             InitializeComponent();
 
+            _textBox1.TextWrapping = System.Windows.TextWrapping.Wrap;
+            _textBox2.TextWrapping = System.Windows.TextWrapping.Wrap;
             Height = 60;
             MainGrid.RowDefinitions.Add(new RowDefinition());
             MainGrid.RowDefinitions.Add(new RowDefinition());
@@ -43,7 +49,7 @@ namespace Flowchart_Framework.View
 
         private void TextChanged(object sender, EventArgs e)
         {
-            Out.EditorValueList = new List<String> { _textBox1.Text, _textBox2.Text};
+            Value = _value;
         }
     }
 }

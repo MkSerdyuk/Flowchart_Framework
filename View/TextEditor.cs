@@ -17,7 +17,7 @@ namespace Flowchart_Framework.View
             set 
             { 
                 _value = value; 
-                Out.Value = value;
+                Out.Value = value + Command.Replace("{val}", _textBox.Text) + Endl;
             }
         }
 
@@ -25,6 +25,7 @@ namespace Flowchart_Framework.View
         {
             InitializeComponent();
 
+            _textBox.TextWrapping = System.Windows.TextWrapping.Wrap;
             _textBox.TextChanged += TextChanged;
             _textBox.SetValue(Grid.ColumnProperty, 0);
             MainGrid.Children.Add(_textBox);
@@ -32,7 +33,7 @@ namespace Flowchart_Framework.View
 
         private void TextChanged(object sender, EventArgs e)
         {
-            Out.EditorValue = _textBox.Text;
+            Value = _value;
         }
     }
 }

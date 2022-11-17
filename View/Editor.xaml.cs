@@ -20,17 +20,21 @@ namespace Flowchart_Framework.View
     /// </summary>
     public partial class Editor : UserControl
     {
-        protected string _value;
-
+        protected string _value = "";
+        
+        private string _command = "";
+        private string _endl = "";
 
         public string Command
         {
-            set { Out.Command = value; }
+            get { return _command; }
+            set { _command = value; }
         }        
         
         public string Endl
         {
-            set { Out.Endl = value; }
+            get { return _endl; }
+            set { _endl = value; }
         }
 
         public virtual string Value

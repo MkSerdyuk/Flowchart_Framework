@@ -36,6 +36,7 @@ namespace Flowchart_Framework.View.Blocks
             Out.SetValue(Grid.ColumnSpanProperty, 3);
             Out.VerticalAlignment = VerticalAlignment.Stretch;
             Out.IsReadOnly = true;
+            Out.TextWrapping = TextWrapping.Wrap;
 
             Label label = new Label();
 

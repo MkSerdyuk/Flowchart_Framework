@@ -9,14 +9,15 @@ using System.Windows.Controls;
 
 namespace Flowchart_Framework.View.Blocks
 {
-    public class CharacterBox : Block
+    public class DialogBox : Block
     {
         public InPort In = new InPort();
-        public TextEditor Editor = new TextEditor();
+        public DoubleTextEditor Editor = new DoubleTextEditor();
 
-        public CharacterBox()
+        public DialogBox()
         {
             InitializeComponent();
+
 
             Editor.SetValue(Grid.RowProperty, 3);
             In.SetValue(Grid.RowProperty, 1);
@@ -30,14 +31,15 @@ namespace Flowchart_Framework.View.Blocks
 
             Label label = new Label();
 
-            label.Content = "New Character";
+            label.Content = "New Dialog";
             label.SetValue(Grid.RowProperty, 0);
             label.SetValue(Grid.ColumnProperty, 0);
             label.SetValue(Grid.ColumnSpanProperty, 3);
 
-            Editor.Command = "  define {val} = Character(\"{val}\") ";
+            Editor.Command = "  {val}\"{val}\" ";
             Editor.Endl = "\n";
 
+            
             MainGrid.Children.Add(In);
             MainGrid.Children.Add(Editor);
             MainGrid.Children.Add(label);
